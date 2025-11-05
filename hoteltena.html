@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rafiki Software – Smart Hotel Solutions</title>
+  <meta name="description" content="Rafiki Software develops modern, AI-driven hotel management and business automation systems for the next generation of hospitality leaders." />
+  <link rel="icon" href="./asset/rafiki_software.png" type="image/png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBlue: '#014d87', // Deep Blue
+            azure: '#0A84FF',     // Bright Accent
+            mist: '#F3F6FB',
+            accent: '#FFB703',    // Gold Accent
+            ink: '#0F172A'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            soft: '0 8px 20px rgba(1, 77, 135, 0.1)',
+            glow: '0 0 50px rgba(255, 183, 3, 0.35)'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-12px)' }
+            },
+            pulseSlow: {
+              '0%, 100%': { opacity: 0.4 },
+              '50%': { opacity: 0.9 }
+            }
+          },
+          animation: {
+            float: 'float 8s ease-in-out infinite',
+            pulseSlow: 'pulseSlow 6s ease-in-out infinite'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(to bottom right, #F3F6FB, #FFFFFF);
+    }
+    .modal { display: none; }
+    .modal.active { display: flex; }
+  </style>
+</head>
+
+<body class="font-sans text-gray-700">
+  <div class="flex flex-col h-screen justify-between">
+    <!-- Header -->
+    <header class="flex justify-between items-center px-10 py-4 backdrop-blur bg-white/70 shadow-soft z-10">
+      <div class="flex items-center gap-3">
+        <img src="./asset/rafiki_software.png" alt="Rafiki Software Logo" class="w-16 h-16 object-contain drop-shadow-md" />
+        <div>
+          <h1 class="text-brandBlue text-xl font-bold tracking-wide">Rafiki Software</h1>
+          <p class="text-xs text-gray-500 font-medium">Smart. Reliable. Scalable.</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center space-x-8 text-gray-600 text-sm font-medium">
+        <a href="#" class="hover:text-accent transition-colors">Home</a>
+        <a href="#" class="hover:text-accent transition-colors">Services</a>
+        <a href="#" class="hover:text-accent transition-colors">About</a>
+        <a href="#" class="hover:text-accent transition-colors">Contact</a>
+        <button id="openModalBtn" class="border border-accent text-accent px-5 py-2.5 rounded-md font-semibold hover:bg-accent hover:text-white transition-all shadow-soft">
+          Sign In
+        </button>
+      </nav>
+
+      <button class="md:hidden text-accent text-3xl font-bold">☰</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col md:flex-row items-center justify-between px-10 md:px-16 flex-grow overflow-hidden relative">
+      
+      <!-- Left Illustration Section - Redesigned -->
+      <div class="relative w-full md:w-1/2 flex justify-center items-center overflow-visible">
+        
+        <!-- Layer 1: background gradient halo -->
+        <div class="absolute w-[500px] h-[500px] bg-gradient-to-br from-brandBlue/30 via-accent/10 to-transparent rounded-full blur-3xl animate-pulseSlow"></div>
+
+        <!-- Layer 2: floating abstract rings -->
+        <div class="absolute w-80 h-80 rounded-full border-4 border-accent/40 animate-float"></div>
+        <div class="absolute w-64 h-64 rounded-full border border-brandBlue/30 animate-pulseSlow"></div>
+
+        <!-- Layer 3: glowing dots -->
+        <div class="absolute top-16 left-10 w-6 h-6 bg-accent/70 rounded-full blur-md animate-pulseSlow"></div>
+        <div class="absolute bottom-24 right-12 w-4 h-4 bg-azure/60 rounded-full blur-sm animate-float"></div>
+
+        <!-- Main Illustration -->
+        <img src="./asset/outhouse.png" alt="Hotel Management Illustration"
+          class="relative w-[80%] max-w-lg drop-shadow-2xl animate-float z-10" />
+      </div>
+
+      <!-- Right Text Section -->
+      <div class="w-full md:w-1/2 text-center md:text-left space-y-6 md:pl-10">
+        <h2 class="text-4xl md:text-5xl font-extrabold text-brandBlue leading-tight">
+          Empowering Hotels<br><span class="text-accent">With Intelligent Systems</span>
+        </h2>
+        <p class="text-gray-600 text-base leading-relaxed max-w-md mx-auto md:mx-0">
+          Rafiki Software builds next-generation hospitality platforms that automate operations, optimize revenue, and enhance guest experiences — helping hotels grow smarter.
+        </p>
+
+        <div class="flex flex-wrap justify-center md:justify-start gap-3 pt-4">
+          <button class="px-5 py-2.5 rounded-full bg-accent text-ink font-semibold hover:shadow-glow transition-all">
+            Explore Solutions
+          </button>
+          <button class="px-5 py-2.5 rounded-full bg-brandBlue text-white font-semibold hover:bg-azure transition-all">
+            See Demo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brandBlue text-white py-6 shadow-inner">
+      <div class="max-w-4xl mx-auto text-center space-y-4 px-4">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <input type="email" placeholder="Enter your e-mail"
+            class="rounded-md p-3 w-72 md:w-80 text-gray-700 outline-none focus:ring-2 focus:ring-accent" />
+          <button class="bg-accent text-ink px-6 py-3 rounded-md font-semibold hover:bg-yellow-400 transition-all shadow-soft">
+            Subscribe
+          </button>
+        </div>
+        <p class="text-xs text-gray-300">© 2025 Rafiki Software. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal fixed inset-0 bg-black/50 backdrop-blur-sm items-center justify-center z-50 transition-all">
+    <div class="bg-white rounded-2xl shadow-2xl w-96 max-w-[90%] p-8 relative animate-fadeIn">
+      <button id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-xl font-bold">&times;</button>
+      <div class="flex flex-col items-center space-y-2 mb-6">
+        <img src="./asset/rafiki_software.png" alt="Rafiki Logo" class="w-16 h-16 object-contain">
+        <h2 class="text-brandBlue text-xl font-bold">Rafiki Software</h2>
+        <p class="text-gray-500 text-sm">Sign in to continue</p>
+      </div>
+
+      <form class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+          <input type="email" required class="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-accent outline-none" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <input type="password" required class="w-full border border-gray-300 rounded-md p-3 focus:ring-2 focus:ring-accent outline-none" placeholder="••••••••" />
+        </div>
+        <div class="flex items-center justify-between text-sm">
+          <label class="flex items-center gap-2 text-gray-600">
+            <input type="checkbox" class="accent-accent w-4 h-4"> Remember me
+          </label>
+          <a href="#" class="text-accent hover:underline">Forgot password?</a>
+        </div>
+        <button type="submit" class="w-full bg-accent text-ink font-semibold py-3 rounded-md hover:bg-yellow-400 transition-all">
+          Sign In
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const loginModal = document.getElementById('loginModal');
+
+    openModalBtn.addEventListener('click', () => loginModal.classList.add('active'));
+    closeModalBtn.addEventListener('click', () => loginModal.classList.remove('active'));
+    window.addEventListener('click', (e) => { if (e.target === loginModal) loginModal.classList.remove('active'); });
+  </script>
+</body>
+</html>
